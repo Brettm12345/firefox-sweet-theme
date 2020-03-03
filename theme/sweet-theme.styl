@@ -1,0 +1,55 @@
+@import 'parts/mixins'
+@import 'parts/buttons'
+@import 'parts/entries'
+@import 'parts/toolbox'
+@import 'parts/headerbar'
+@import 'parts/csd'
+@import 'parts/tabsbar'
+@import 'parts/findbar'
+/* @import "parts/sidebar.css"; */
+@import 'parts/popups'
+@import 'parts/remove-white-flash'
+@import 'parts/scrollbars'
+@import 'parts/icons'
+/* @import "colors/light.css"; */
+@import 'colors/dark'
+
+@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+
+:root {
+  --space-above-tabbar 0 i
+}
+
+/* Sidebar */
+#sidebar- {
+  &box .sidebar-panel {
+    bg v(sidebar-background)
+
+    &:-moz-window-inactive {
+      bg v(inactive-sidebar-background)
+
+      label, image {
+        o 0.7
+      }
+    }
+  }
+
+  &splitter {
+    w 1px
+    b 0
+    bg v(toolbar-border-color)
+
+    &:-moz-window-inactive {
+      bg v(inactive-toolbar-border-color)
+    }
+  }
+
+  &header {
+    p 6px
+    b 1px solid v(toolbar-border-color)
+  }
+
+  &search-container {
+    p 6px
+  }
+}

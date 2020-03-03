@@ -1,0 +1,57 @@
+/* Entries */
+@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+
+/* Entries */
+#urlbar, #searchbar, #search-box, .findbar-textbox {
+  box-sizing border-box
+  mh 34px
+  h 34px
+  m 0
+  p 6px 8px
+  c v(urlbar-color) v(urlbar-border-color) v(urlbar-background)
+  b 1px solid
+  r 5px
+  bs v(urlbar-box-shadow)
+  ap none
+}
+
+/* Entries focused */
+#urlbar[focused], #searchbar:focus-within, #search-box[focused], .findbar-textbox[focused], .findbar-textbox:focus {
+  outline 2px solid v(focused-urlbar-border-color) i
+  outline-offset -2px
+  -moz-outline-radius 5px
+}
+
+/* Inactive window entries */
+#urlbar:-moz-window-inactive, #searchbar:-moz-window-inactive, #search-box:-moz-window-inactive, .findbar-textbox:-moz-window-inactive {
+  bs v(inactive-urlbar-box-shadow)
+  c v(inactive-urlbar-color) v(inactive-urlbar-border-color) v(inactive-urlbar-background)
+}
+
+/* Entries combined */
+.findbar-textbox {
+  border-right-width 0 i
+  border-top-right-radius 0 i
+  border-bottom-right-radius 0 i
+
+  &[focused], &:focus {
+    -moz-outline-radius 5px 0 0 5px i
+  }
+}
+
+/* Entries fixes */
+#urlbar, #searchbar {
+  m 0 3px
+  p 0
+}
+
+.searchbar-textbox {
+  min-height auto i
+  m 0
+  p 0
+  b 0
+}
+
+#searchbar > .searchbar-textbox[focused] .searchbar-search-button:not(#hack) {
+  m 0
+}

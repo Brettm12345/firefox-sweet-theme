@@ -1,0 +1,193 @@
+/* Buttons */
+@import 'buttons-fixes'
+
+@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+
+/* Hide buttons separator */
+#nav-bar .toolbaritem-combined-buttons separator {
+  display none i
+}
+
+#appMenu-popup .toolbaritem-combined-buttons toolbarseparator {
+  b 0
+}
+
+/* Buttons */
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton), .subviewbutton.panel-subview-footer, .panel-footer button, #downloadsHistory, #downloadsPanel-mainView .download-state .downloadButton, #overflowMenu-customize-button, #appMenu-popup .panel-banner-item, #appMenu-popup .toolbaritem-combined-buttons toolbarbutton:not(#appMenu-fxa-label), .subviewbutton-back, #context-navigation menuitem, .identity-popup-preferences-button:not(#hack), .findbar-container toolbarbutton, #sidebar-switcher-target, #viewButton, .close-icon:not(.tab-close-button), #TabsToolbar .toolbarbutton-1, .menulist-label-box, .expander-down, .expander-up {
+  min-width 30px i
+  min-height 30px i
+  border-bottom-color v(button-border-accent-color) i
+  mh 30px
+  h 30px
+  bg v(button-background)
+  bs v(button-box-shadow)
+  c v(toolbar-color)
+  r 5px
+  b 1px solid v(button-border-color)
+  ap none
+  p 0 2px
+}
+
+/* Buttons with margins */
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton) {
+  m 0 2px
+}
+
+#TabsToolbar .toolbarbutton-1 {
+  m 1px 3px 2px
+}
+
+/* Text buttons */
+.subviewbutton.panel-subview-footer, .panel-footer button, #downloadsHistory, #overflowMenu-customize-button, #appMenu-popup .panel-banner-item, #appMenu-zoomReset-button:not(#appMenu-fxa-label):not(#hack), #tracking-protection-preferences-button:not(#hack), .findbar-container toolbarbutton.findbar-button {
+  ta center
+  p 2px 16px
+}
+
+.subviewbutton.panel-subview-footer label {
+  ta center
+}
+
+/* Drop down buttons */
+.menulist-label-box, #sidebar-switcher-target, #viewButton {
+  position relative
+  p 2px 16px
+
+  &:after { /* Arrow position */
+    position absolute i
+    top 8px i
+    right 8px i
+    content ''
+  }
+}
+
+#sidebar-switcher-arrow, #viewButton .button-menu-dropmarker /* Arrow position, type b */ {
+  transform translate(6px, 0)
+}
+
+/* Hover buttons */
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton):not([open]):not([disabled]):hover, .subviewbutton.panel-subview-footer:hover, .panel-footer button:hover, #downloadsHistory:hover, #downloadsPanel-mainView .download-state .downloadButton:hover, #overflowMenu-customize-button:hover, #appMenu-popup .panel-banner-item:hover, .subviewbutton-back:hover, #appMenu-popup .toolbaritem-combined-buttons toolbarbutton:not(#appMenu-fxa-label):not([disabled]):hover, #context-navigation menuitem:not([disabled]):hover, .identity-popup-preferences-button:not(#hack):hover, .findbar-container toolbarbutton:hover, .findbar-closebutton .toolbarbutton-icon:hover, #sidebar-switcher-target:hover, #viewButton:hover, .close-icon:not(.tab-close-button):hover, #TabsToolbar .toolbarbutton-1:hover, menulist:hover .menulist-label-box, .expander-down:hover, .expander-up:hover {
+  outline 0 i
+  bg v(button-hover-background)
+}
+
+/* Active buttons */
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not([disabled]):not(#hack):active, #nav-bar toolbarbutton:not(#urlbar-zoom-button):not([disabled])[open], .subviewbutton.panel-subview-footer:active, .panel-footer button:active, #downloadsHistory:active, #downloadsPanel-mainView .download-state .downloadButton:active, #overflowMenu-customize-button:active, #appMenu-popup .panel-banner-item:active, .subviewbutton-back:not(#hack):active, #appMenu-popup .toolbaritem-combined-buttons toolbarbutton:not([disabled]):not(#appMenu-fxa-label):active, #context-navigation menuitem:active:not([disabled]), .identity-popup-preferences-button:not(#hack):active, .findbar-container toolbarbutton[checked], .findbar-container toolbarbutton:active, #sidebar-switcher-target:active, #sidebar-switcher-target.active, #viewButton[open], .close-icon:not(.tab-close-button):active, #TabsToolbar .toolbarbutton-1:active, #TabsToolbar .toolbarbutton-1[open], menulist[open] .menulist-label-box, .expander-down:active, .expander-up:active {
+  border-color v(button-active-border-color) i
+  border-top-color v(button-active-border-accent-color) i
+  border-bottom-color v(button-active-border-color) i
+  bg v(button-active-background)
+  bs v(button-active-box-shadow)
+}
+
+/* Disabled buttons */
+#nav-bar toolbarbutton:not(#urlbar-zoom-button)[disabled], #appMenu-popup .toolbaritem-combined-buttons toolbarbutton[disabled], #context-navigation menuitem[disabled] {
+  border-color v(button-disabled-border-color) i
+  bg v(button-disabled-background)
+  bs v(button-disabled-box-shadow)
+  o 1
+}
+
+#nav-bar toolbarbutton:not(#urlbar-zoom-button)[disabled] image, #appMenu-popup .toolbaritem-combined-buttons toolbarbutton[disabled] image, #context-navigation menuitem[disabled] image {
+  o 0.4
+}
+
+#nav-bar toolbarbutton:not(#urlbar-zoom-button)[disabled]:hover, #appMenu-popup .toolbaritem-combined-buttons toolbarbutton[disabled]:hover {
+  bg v(button-disabled-background)
+}
+
+/* Inactive window buttons */
+#nav-bar toolbarbutton:not(#urlbar-zoom-button):not(.subviewbutton):-moz-window-inactive, .findbar-container toolbarbutton:-moz-window-inactive, #sidebar-switcher-target:-moz-window-inactive, #viewButton:-moz-window-inactive {
+  bc v(inactive-button-border-color)
+  bg v(inactive-button-background)
+  bs v(inactive-button-box-shadow)
+}
+
+/* Flat buttons */
+.subviewbutton-back:not(#hack), .close-icon:not(.tab-close-button), #TabsToolbar .toolbarbutton-1 {
+  bc transparent
+  r 5px
+  bg transparent
+  bs none
+}
+
+.subviewbutton-back:not(#hack):not(:active):hover, .close-icon:not(.tab-close-button):not(:active):hover, #TabsToolbar .toolbarbutton-1:not(:active):not([open]):hover {
+  border-bottom-color v(button-border-accent-color) i
+  bc v(button-border-color)
+  bs v(button-box-shadow)
+}
+
+/* Circle buttons */
+#downloadsPanel-mainView .download-state .downloadButton {
+  r 100%
+}
+
+/* Combined buttons */
+#nav-bar .toolbaritem-combined-buttons toolbarbutton:not(:last-of-type):not(#hack), #nav-bar #back-button:not(#hack), .subviewbutton.panel-subview-footer:not(:only-of-type):not(:last-of-type), .panel-footer button:not(:only-of-type):not(:last-of-type), #appMenu-popup .toolbaritem-combined-buttons toolbarbutton:not(:last-of-type):not(#appMenu-zoomEnlarge-button), #context-navigation menuitem:not(:last-of-type), .findbar-container toolbarbutton.findbar-find-previous {
+  border-right-width 0 i
+  border-top-right-radius 0 i
+  border-bottom-right-radius 0 i
+  mr 0
+}
+
+#nav-bar .toolbaritem-combined-buttons toolbarbutton:not(:first-of-type):not(#hack), #nav-bar #forward-button:not(#hack), .subviewbutton.panel-subview-footer:not(:only-of-type):not(:first-of-type), .panel-footer button:not(:only-of-type):not(:first-of-type), #appMenu-popup .toolbaritem-combined-buttons toolbarbutton:not(:first-of-type):not(#appMenu-fullscreen-button), #context-navigation menuitem:not(:first-of-type), .findbar-container toolbarbutton.findbar-find-previous, .findbar-container toolbarbutton.findbar-find-next {
+  border-top-left-radius 0 i
+  border-bottom-left-radius 0 i
+  ml 0
+}
+
+#nav-bar .toolbaritem-combined-buttons {
+  mx 0
+}
+
+/* Buttons with suggested action */
+#appMenu-popup .panel-banner-item[notificationid='update-restart'], button.popup-notification-primary-button, #editBookmarkPanelDoneButton {
+  border-color v(button-suggested-action-border-color) i
+  border-bottom-color v(button-suggested-action-border-accent-color) i
+  text-shadow 0 -1px rgba(0, 0, 0, 0.559216) i
+  bg v(button-suggested-action-background)
+  bs v(button-suggested-action-box-shadow)
+  c white
+}
+
+#appMenu-popup .panel-banner-item[notificationid='update-restart']:hover, button.popup-notification-primary-button.popup-notification-button:hover, #editBookmarkPanelDoneButton:hover {
+  bg v(button-suggested-action-hover-background)
+}
+
+#appMenu-popup .panel-banner-item[notificationid='update-restart']:active, button.popup-notification-primary-button.popup-notification-button:active, #editBookmarkPanelDoneButton:active {
+  text-shadow none i
+  bc v(button-suggested-action-active-border-color)
+  bg v(button-suggested-action-active-background)
+  bs v(button-suggested-action-active-box-shadow)
+}
+
+/* Buttons with destructive action */
+#editBookmarkPanelRemoveButton {
+  border-bottom-color v(button-destructive-action-border-accent-color) i
+  text-shadow 0 -1px rgba(0, 0, 0, 0.558275) i
+  bc v(button-destructive-action-border-color)
+  bg v(button-destructive-action-background)
+  bs v(button-destructive-action-box-shadow)
+  c white
+
+  &:hover {
+    bg v(button-destructive-action-hover-background)
+  }
+
+  &:active {
+    bc v(button-destructive-action-active-border-color)
+    bg v(button-destructive-action-active-background)
+    bs v(button-destructive-action-active-box-shadow)
+  }
+}
+
+/* User sync menu, bigger avatar */
+#fxa-toolbar-menu-button .toolbarbutton-badge-stack {
+  m 0
+  p 0
+}
+
+#fxa-avatar-image {
+  m 0
+  p 0
+  s 24px
+}

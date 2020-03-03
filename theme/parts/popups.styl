@@ -1,0 +1,117 @@
+
+/* Popup menus and context menus */
+@import 'popups-contents'
+
+@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+
+/* Style menus */
+menupopup {
+  padding 2px
+  b 0
+  bg none
+  ap none
+
+  menupopup {
+    margin -7px 0 0 -4px
+  }
+
+  .popup-internal-box {
+    padding 4px 0
+    border 1px solid v(menu-border-color)
+    border-radius 5px
+    background v(menu-background)
+    box-shadow 0 1px 1px rgba(0, 0, 0, 0.1) i
+    color v(toolbar-color) i
+  }
+
+  /* Context menu seperator */
+  menuseparator {
+    ap none
+    b none
+    c 0 v(headerbar-background)
+  }
+
+  /* Context menu */
+  & menu, & menuitem {
+    p 4px 12px
+    bg v(toolbar-background)
+    c v(toolbar-color)
+    ap none
+
+    &:hover {
+      c 0 v(popover-button-hover-background)
+    }
+  }
+}
+
+/* Adjust popovers position */
+panel[type=arrow] {
+  max-height 80vh i
+  mt 9px
+}
+
+/* Style popovers */
+.panel-arrowcontent .panel-arrowcontent, .panel-header, .PanelUI-subView, .panel-subview-body, #widget-overflow-mainView, panelview {
+  bg transparent
+}
+
+panel:not(.tooltip-xul-wrapper) .panel-arrowcontent {
+  p 8px 12px
+  b 1px solid
+  r 9px
+  bs v(popover-shadow) i
+  c v(toolbar-color) v(popover-border-color) v(popover-background)
+}
+
+.panel- {
+  &arrow {
+    fill v(popover-background) i
+    stroke v(popover-border-color) i
+  }
+
+  &footer {
+    display flex
+    justify-content flex-end
+    background-color transparent i
+
+    toolbarseparator {
+      display none i
+    }
+  }
+
+  /* Remove popover header separator */
+  &header {
+    bb 0
+  }
+}
+
+/* Style popovers menu buttons */
+.subviewbutton {
+  &, .toolbarbutton-1 {
+    r 3px
+    c v(toolbar-color)
+  }
+
+  &[disabled], .toolbarbutton-1[disabled], &[shortcut]:after {
+    o 0.5
+  }
+}
+
+.subviewbutton:not([disabled]):hover, .toolbarbutton-1:not([disabled]):hover {
+  bg v(popover-button-hover-background)
+}
+
+/* Style popover separators */
+toolbarseparator {
+  &, menuseparator {
+    bc v(popover-separator-color)
+  }
+
+  &:not([orient='vertical']) {
+    m 0 8px
+  }
+
+  &[orient='vertical'] {
+    m 0 3px
+  }
+}

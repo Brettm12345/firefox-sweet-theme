@@ -1,0 +1,24 @@
+{
+  "name": "moonlight-firefox-theme",
+  "description": "A dark blue firefox theme",
+  "homepage": "https://github.com/brettm12345/firefox-sweet-theme",
+  "license": "MIT",
+  "author": {
+    "name": "Brett Mandler",
+    "email": "brettmandler@gmail.com",
+    "url": "https://github.com/brettm12345"
+  },
+  "scripts": {
+    "build": "stylus ./userChrome.styl",
+    "format": "stylus-supremacy format lib/*.styl --options .vscode/settings.json"
+  },
+  "husky": {
+    "pre-commit": "sort-package-json && yarn format"
+  },
+  "devDependencies": {
+    "husky": "^4.2.3",
+    "sort-package-json": "^1.40.0",
+    "stylus": "^0.54.5",
+    "stylus-supremacy": "^2.14.0"
+  }
+}

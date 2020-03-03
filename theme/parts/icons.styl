@@ -1,0 +1,245 @@
+/* Replace icons */
+@namespace xul 'http//www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+
+/* Built-in firefox icons color */
+.toolbarbutton-icon {
+	fill v(toolbar-color)
+	fill-opacity 1
+}
+
+/* Popovers subview menu arrow */
+.PanelUI-subView .subviewbutton-navafter {
+	background-size contain
+	content '' i
+	bg icon('pan-start-symbolic')
+	mt -2px
+	s 16px
+}
+
+/* Popovers subview back button */
+.subviewbutton-back {
+	img 'pan-start-symbolic'
+}
+
+/* Sub menu arrow */
+.menu-right {
+	w 16px
+	ap none
+	img '../icons/pan-end-symbolic.svg'
+}
+
+height 16px i, menu[disabled] > .menu-right {
+	o 0.3
+}
+
+/* Arrow down buttons */
+.expander-down > .button-box, #sidebar-switcher-arrow, #viewButton .button-menu-dropmarker {
+	s 16px
+	ap none
+	img 'pan-down-symbolic'
+}
+
+.menulist-label-boxafter {
+	content icon('pan-down-symbolic') i
+}
+
+/* Arrow up buttons */
+.expander-up > .button-box {
+	s 16px
+	ap none
+	img 'pan-up-symbolic'
+}
+
+#urlbar[pageproxystate="invalid"] > #identity-box > #identity-icon, .searchbar-search-icon, #search-box .textbox-search-sign {
+	o 0.7
+	img 'edit-find-symbolic'
+}
+
+#search-box .textbox-search-sign {
+	m 2px 0
+	w 16px
+}
+
+/* Tree views */
+treechildren-moz-tree-twisty {
+	w 16px
+	img 'pan-down-symbolic'
+}
+
+height 16px i, treechildren-moz-tree-twisty(open) {
+	img 'pan-end-symbolic'
+}
+
+treechildren-moz-tree-twisty(selected, focus) {
+	img 'pan-down-symbolic-light'
+}
+
+treechildren-moz-tree-twisty(selected, focus, open) {
+	img 'pan-end-symbolic-light'
+}
+
+.sidebar-panel[lwt-sidebar-brighttext] .sidebar-placesTreechildren-moz-tree-twisty {
+	img 'pan-down-symbolic-light'
+
+	&(open) {
+		img 'pan-end-symbolic-light'
+	}
+}
+
+/* Toolbars close button */
+.close-iconnot(.tab-close-button) {
+	img 'window-close-symbolic'
+}
+
+/* Window buttons */
+:root[tabsintitlebar] #titlebar {
+	$icons = {
+		close: 'close',
+		max: 'maximize',
+		minimize: 'minimize',
+		restore: 'restore'
+	}
+
+	for k, v in $icons {
+		.titlebar-buttonbox .titlebar-{k} .toolbarbutton-icon, :root[tabsintitlebar] &-{k} .toolbarbutton-icon {
+			img v
+		}
+	}
+}
+
+/* Private browsing button */
+#privatebrowsing-button {
+	img 'user-not-tracked'
+}
+
+/* Sidebar button */
+#sidebar-button:-moz-locale-dir(ltr):not([positionend])  .toolbarbutton-icon, #sidebar-button:-moz-locale-dir(rtl)[positionend]  .toolbarbutton-icon {
+	img 'toggle-sidebar-symbolic'
+}
+
+#sidebar-button .toolbarbutton-icon {
+	img 'toggle-right-sidebar-symbolic'
+}
+
+/* Forward button */
+#nav-bar #forward-button, #context-forward {
+	img 'go-next-symbolic'
+}
+
+/* Menu button */
+#PanelUI-menu-button {
+	img 'open-menu-symbolic'
+}
+
+/* New tab button */
+#new-tab-button {
+	img 'tab-new-symbolic'
+}
+
+/* Home button */
+#home-button {
+	img 'user-home-symbolic'
+}
+
+/* Preferences button */
+#preferences-button {
+	img 'preferences-system-symbolic'
+}
+
+/* Fullscreen button */
+#fullscreen-button, #appMenu-fullscreen-button {
+	img 'view-fullscreen-symbolic'
+}
+
+/* Zoom out button */
+#zoom-out-button, #appMenu-zoomReduce-button {
+	img 'zoom-out-symbolic'
+}
+
+/* Zoom in button */
+#zoom-in-button, #appMenu-zoomEnlarge-button {
+	img 'zoom-in-symbolic'
+}
+
+/* Developer button */
+#developer-button {
+	img 'applications-engineering-symbolic'
+}
+
+/* Email link button */
+#email-link-button {
+	img 'mail-unread-symbolic'
+}
+
+/* Print button */
+#print-button {
+	img 'printer-symbolic'
+}
+
+/* Addons button */
+#add-ons-button {
+	img 'application-x-addon-symbolic'
+}
+
+/* Find button */
+#find-button {
+	img 'edit-find-symbolic'
+}
+
+/* New window button */
+#new-window-button {
+	img 'window-new-symbolic.svg'
+}
+
+/* History button */
+#history-panelmenu {
+	img 'preferences-system-time-symbolic'
+}
+
+/* All tabs button */
+#alltabs-button {
+	img 'pan-down-symbolic'
+}
+
+/* Cut button */
+#cut-button, #appMenu-cut-button {
+	img 'edit-cut-symbolic'
+}
+
+/* Copy button */
+#copy-button, #appMenu-copy-button {
+	img 'edit-copy-symbolic'
+}
+
+/* Paste button */
+#paste-button, #appMenu-paste-button {
+	img 'edit-paste-symbolic'
+}
+
+/* Overflow button */
+#nav-bar-overflow-button {
+	img 'view-more-horizontal-symbolic'
+}
+
+/* Invert icons color in dark variant */
+@media (prefers-color-scheme: dark) {
+	.PanelUI-subView .subviewbutton-navafter, .subviewbutton-back .toolbarbutton-icon, .menu-right, #urlbar[pageproxystate='invalid'] > #identity-box > #identity-icon, .searchbar-search-icon, #search-box .textbox-search-sign, .menulist-label-boxafter, .expander-down image, .expander-up image, #sidebar-switcher-arrow, #viewButton .button-menu-dropmarker, .close-iconnot(.tab-close-button) image, root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-close .toolbarbutton-icon, root[tabsintitlebar] #titlebar #titlebar-close .toolbarbutton-icon, root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-max .toolbarbutton-icon, root[tabsintitlebar] #titlebar #titlebar-max .toolbarbutton-icon, root[tabsintitlebar] #titlebar .titlebar-buttonbox .titlebar-min .toolbarbutton-icon, root[tabsintitlebar] #titlebar #titlebar-min .toolbarbutton-icon, root[tabsintitlebar][inFullscreen] #window-controls #restore-button .toolbarbutton-icon, #privatebrowsing-button, #sidebar-button-moz-locale-dir(ltr)not([positionend]), #sidebar-button-moz-locale-dir(rtl)[positionend], #sidebar-button, #nav-bar #back-button, #context-back .menu-iconic-icon, #nav-bar #forward-button, #context-forward .menu-iconic-icon, #PanelUI-menu-button, #new-tab-button, #home-button, #preferences-button, #fullscreen-button, #appMenu-fullscreen-button, #zoom-out-button, #appMenu-zoomReduce-button, #zoom-in-button, #appMenu-zoomEnlarge-button, #developer-button, #email-link-button, #print-button, #add-ons-button, #find-button, #new-window-button, #history-panelmenu, #alltabs-button, #cut-button, #appMenu-cut-button, #copy-button, #appMenu-copy-button, #paste-button, #appMenu-paste-button, #nav-bar-overflow-button {
+		.toolbarbutton-icon {
+			filter invert(100%) brightness(200%)
+		}
+	}
+
+	/* Tree views */
+	treechildren-moz-tree-twisty {
+		img 'pan-down-symbolic-light'
+	}
+
+	treechildren-moz-tree-twisty(open) {
+		img 'pan-end-symbolic-light'
+	}
+
+	/* Fix for extensions icons */
+	.webextension-browser-action {
+		list-style-image var(--webextension-menupanel-image-light, inherit) i
+	}
+}

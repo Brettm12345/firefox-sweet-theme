@@ -1,0 +1,136 @@
+@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+
+moz-icon(x) {
+  list-style-image url('moz-icon://stock/{x}?size=dialog')
+}
+
+button(x) {
+  .toolbarbutton-icon {
+    filter v(icons-hack-filter)
+    moz-icon x
+  }
+}
+
+/* Icons light/dark fix coloring hack filters */
+:root {
+  --sweet-icons-hack-filter none
+  --sweet-window-icons-hack-filter none
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --sweet-icons-hack-filter invert(100%) sepia(100%) grayscale(100%) brightness(200%) brightness(200%)
+    --sweet-window-icons-hack-filter invert(90%)
+  }
+}
+
+icons(x) {
+  for k, v in x {
+    #{k}-button {
+      button '{v}-symbolic'
+    }
+  }
+}
+
+sel(x) {
+  selector('.titlebar-buttonbox', '.titlebar-{x}', '#titlebar{x}')
+}
+
+ico(x) {
+  .toolbarbutton-icon {
+    moz-icon x
+  }
+}
+
+/* Window buttons */
+:root[tabsintitlebar] {
+  #titlebar {
+    {sel('close')} {
+      ico 'window-close-symbolic'
+    }
+
+    {sel('max')} {
+      ico 'window-maximize-symbolic'
+    }
+
+    {selc('min')} {
+      ico 'window-minimize-symbolic'
+    }
+
+    &, &[inFullscreen] #window-controls {
+      #restore-button {
+        ico 'view-restore-symbolic'
+      }
+
+      toolbarbutton .toolbarbutton-icon {
+        width 16px
+        filter v(window-icons-hack-filter) i
+      }
+    }
+  }
+}
+
+/* Toolbars close button */
+.close-icon:not(.tab-close-button) {
+  button 'window-close-symbolic'
+}
+
+/* Navbar icons */
+#nav-bar {
+  icons({
+    back: 'go-previous',
+    forward: 'go-next'
+  })
+}
+
+icons({
+  PanelUI-menu: 'open-menu',
+  new-tab: 'tab-new',
+  home: 'user-home',
+  preferences: 'preferences-system',
+  fullscreen: 'view-fullscreen',
+  zoom-out: 'zoom-out',
+  zoom-in: 'zoom-in',
+  developer: 'applications-engineering',
+  email-link: 'mail-unread',
+  print: 'printer',
+  add-ons: 'application-x-addon',
+  find: 'edit-find',
+  new-window: 'window-new',
+  alltabs: 'pan-down',
+  cut: 'edit-cut',
+  copy: 'edit-copy',
+  paste: 'edit-paste',
+  nav-bar-overflow: 'view-more-horizontal'
+})
+
+/* History button */
+#history-panelmenu {
+  button 'preferences-system-time-symbolic'
+}
+
+#context- {
+  &back {
+    button 'go-previous-symbolic'
+  }
+
+  &forward {
+    button 'go-next-symbolic'
+  }
+}
+
+/* Main menu buttons icons */
+$appMenu = {
+  zoomReduce: 'zoom-out',
+  zoomEnlarge: 'zoom-in',
+  fullscreen: 'view-fullscreen',
+  cut: 'edit-cut',
+  copy: 'edit-copy',
+  paste: 'edit-paste'
+}
+
+for k, v in $appMenu {
+  #appMenu-{k}-button {
+    button '{v}-symbolic'
+  }
+}

@@ -1,0 +1,86 @@
+/* Toolbox, a container for all toolbars (toolbox#navigator-toolbox):
+ * - menu bar (toolbar#toolbar-menubar)
+ * - tab bar (toolbar#TabsToolbar)
+ * - header bar (toolbar#nav-bar)
+ * - bookmark bar (toolbar#PersonalToolbar)
+ * - add-ons can add their own toolbars (toolbar) */
+@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+
+/* Toolbox colors */
+#navigator-toolbox {
+  b 0
+  bg none
+}
+
+#nav-bar, #PersonalToolbar, #toolbar-menubar, #TabsToolbar, findbar {
+  b 0
+  bb 1px solid v(sweet-toolbar-border-color)
+  bg v(sweet-toolbar-background)
+}
+
+#nav-bar:-moz-window-inactive, #PersonalToolbar:-moz-window-inactive, #toolbar-menubar:-moz-window-inactive, #TabsToolbar:-moz-window-inactive, findbar:-moz-window-inactive {
+  bb 1px solid v(sweet-inactive-toolbar-border-color)
+  bg v(sweet-inactive-toolbar-background)
+}
+
+#navigator-toolbox:-moz-window-inactive label, #navigator-toolbox:-moz-window-inactive image, #downloads-indicator-anchor:-moz-window-inactive, findbar:-moz-window-inactive image:not(#hack), findbar:-moz-window-inactive label, #viewButton:-moz-window-inactive dropmarker {
+  o 0.7
+}
+
+#toolbar-menubar:not([inactive=true]) {
+  mb 0
+}
+
+#PersonalToolbar {
+  pt 2px
+  h 32px
+}
+
+/* Overrides: Remove border below the menu bar / above the header bar */
+#TabsToolbar:not([collapsed="true"]) + #nav-bar {
+  bt 0
+}
+
+#navigator-toolbox {
+  g() {
+    -moz-box-ordinal-group arguments
+  }
+
+  &::after {
+    bt 0
+  }
+
+  #nav-bar, findbar {
+    g 0
+  }
+
+  #PersonalToolbar {
+    g 1
+  }
+
+  #titlebar {
+    g 2
+  }
+
+  toolbar {
+    g 10
+  }
+
+  #TabsToolbar {
+    g 100
+  }
+}
+
+/* Overrides: Don't shift other toolbars on tab drag and drop */
+#TabsToolbar[movingtab] {
+  pb 0
+
+  & > .tabbrowser-tabs {
+    mb 0
+    pb 0
+  }
+
+  & + #nav-bar {
+    mt 0
+  }
+}

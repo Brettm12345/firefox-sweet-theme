@@ -1,0 +1,149 @@
+/* Popups contents syles */
+@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+
+/* Style main context menu & buttons */
+#context-navigation {
+  p 4px 8px 8px
+
+  menuitem {
+    --toolbarbutton-active-background transparent i
+    --toolbarbutton-hover-background transparent i
+  }
+
+  & > menuitem > .menu-iconic-left {
+    m auto
+  }
+}
+
+menuimage() {
+  selector('#contentAreaContextMenu', arguments, 'image')
+}
+
+/* Remove icons from the main context menu */
+{menuimage('menuitem, menu')} {
+  visibility hidden
+}
+
+{menuimage('menugroup menuitem, .menu-right')} {
+  visibility visible
+}
+
+/* Main menu remove items icons */
+panelview vbox.panel-subview-body > toolbarbutton {
+  image {
+    display none
+  }
+
+  label {
+    padding-inline-start 0 i
+  }
+}
+
+{selector('#appMenu-zoom-controls, #appMenu-edit-controls', '& > spacer')} {
+  w 12px
+}
+
+/* Main menu */
+#appMenu-popup .panel-banner-item:after {
+  margin 0 8px 0 0 i
+  -moz-box-ordinal-group 0
+}
+
+/* User sync account remove avatar */
+#fxa-menu-avatar {
+  display none
+}
+
+/* Add search engine button remove icon */
+#pageAction-panel-addSearchEngine .toolbarbutton-badge-stack {
+  display none i
+}
+
+/* All tabs popover */
+.alltabs-item {
+  &[selected] {
+    bl 3px solid v(tabbar-tab-active-border-bottom-color)
+    bs none i
+  }
+
+  & > .all-tabs-secondary-button label {
+    m 0
+  }
+}
+
+/* Downloads popover */
+#downloadsPanel-mainView {
+  .download-state {
+    display flex
+    align-items center
+    p 8px
+    b 0
+    r 5px
+
+    &:hover {
+      c 0 v(popover-button-hover-background)
+    }
+
+    &:last-child {
+      mb 8px
+    }
+
+    .downloadButton .button-box {
+      m 0
+      p 0
+    }
+
+    toolbarseparator {
+      display none
+    }
+  }
+
+  .download {
+    &Container {
+      display flex
+      flex 1
+      flex-direction column
+      margin-inline-end 0 i
+    }
+
+    &MainArea {
+      display flex
+      flex 1
+
+      &:hover {
+        bg transparent
+      }
+    }
+
+    &TypeIcon {
+      m 0
+      mr 6px
+    }
+  }
+}
+
+/* Customization overflow menu position */
+#customization-panel {
+  &-container {
+    z-index 10
+    mt 10px
+    p 0 75px 25px
+  }
+
+  &Wrapper > .panel-arrowbox {
+    mb -5px
+  }
+}
+
+/* Confirmation Hint */
+#confirmation-hint {
+  .panel-arrowcontent {
+    c 0 v(button-suggested-action-border-color) v(button-suggested-action-background)
+    fill v(button-suggested-action-border-color) i
+    stroke v(button-suggested-action-border-color) i
+  }
+
+  &-message {
+    c white
+  }
+}

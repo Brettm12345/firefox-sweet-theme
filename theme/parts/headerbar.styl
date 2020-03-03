@@ -1,0 +1,24 @@
+/* Header bar */
+@import 'headerbar-urlbar'
+@import 'headerbar-private-urlbar'
+
+@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+
+/* Headerbar */
+#nav-bar {
+	p 6px 3px
+}
+
+/* Headerbar CSD colors */
+:root[tabsintitlebar] #nav-bar {
+	bb 1px solid v(headerbar-border-color)
+	b none
+	bg v(headerbar-background)
+	bs v(headerbar-box-shadow)
+
+	&:-moz-window-inactive {
+		border-bottom-color v(inactive-headerbar-border-color) i
+		bg v(inactive-headerbar-background)
+		bs v(inactive-headerbar-box-shadow)
+	}
+}

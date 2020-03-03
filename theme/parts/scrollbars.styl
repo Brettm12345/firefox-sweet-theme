@@ -1,0 +1,37 @@
+/* Scrollbars hack */
+@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+
+toolbarbutton#alltabs-button {
+  -moz-binding url('scrollbars.xml#js')
+}
+
+#alltabs-button {
+  &:-moz-window-inactive::before {
+    o 0.7
+  }
+
+  &:not(#hack) {
+    position relative
+    list-style-image none i
+
+    .toolbarbutton-icon {
+      display none i
+    }
+
+    .toolbarbutton-badge-stack {
+      position absolute
+    }
+  }
+
+  &::before {
+    @media (prefers-color-scheme: dark) {
+      filter invert(100%) brightness(200%)
+    }
+  }
+
+  &:not(#hack), &::before {
+    position relative
+    top 2px
+    content icon('pan-down-symbolic')
+  }
+}
