@@ -1,53 +1,52 @@
-/* Buttons Issues/Glitches fixes */
-@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
+@import 'https://raw.githubusercontent.com/EliverLara/firefox-sweet-theme/master/theme/parts/buttons-fixes.css';
 
 /* Overrides: Make the back button the same as other buttons */
 :root:not([uidensity=compact]) #back-button {
-  r v(toolbarbutton-border-radius)
+  r: v(toolbarbutton-border-radius);
 
   & > .toolbarbutton-icon {
-    p v(toolbarbutton-inner-padding)
-    w calc(2 * v(toolbarbutton-inner-padding) + 16px)
-    h calc(2 * v(toolbarbutton-inner-padding) + 16px)
-    b unset
-    r v(toolbarbutton-border-radius)
-    c 0 unset
-    bs none
+    p: v(toolbarbutton-inner-padding);
+    w: calc(2 * v(toolbarbutton-inner-padding) + 16px);
+    h: calc(2 * v(toolbarbutton-inner-padding) + 16px);
+    b: unset;
+    r: v(toolbarbutton-border-radius);
+    c: 0 unset;
+    bs: none;
   }
 
   &:not([disabled]):not([open]):hover > .toolbarbutton-icon {
-    c 0 unset unser
-    bs unset
+    c: 0 unset unser;
+    bs: unset;
   }
 
   &[open] > .toolbarbutton-icon, &:hover:active > .toolbarbutton-icon {
-    c 0 unset v(toolbarbutton-active-background)
+    c: 0 unset v(toolbarbutton-active-background);
   }
 }
 
 /* Remove the header bar buttons' hover styles */
 #nav-bar {
-  --toolbarbutton-active-background transparent i
-  --toolbarbutton-hover-background transparent i
+  --toolbarbutton-active-background: transparent i;
+  --toolbarbutton-hover-background: transparent i;
 }
 
 /* Glitch customizing: Cut / Copy / Paste buttons' icons
  * :not(#hack) is there just to elevate rule priority */
 :root[customizing] #nav-bar > hbox toolbaritem toolbarbutton image:not(#hack) {
-  o 1
+  o: 1;
 }
 
 :root:-moz-window-inactive[customizing] #nav-bar {
   #stop-reload-button, #edit-controls {
     /* Glitch customizing: Reload and Cut / Copy / Paste buttons */
     toolbarbutton {
-      background-image v(inactive-button-background)
-      box-shadow v(inactive-button-box-shadow)
+      background-image: v(inactive-button-background);
+      box-shadow: v(inactive-button-box-shadow);
     }
 
     /* Glitch customizing: Reload and Cut / Copy / Paste buttons' icons */
     image.toolbarbutton-icon {
-      o 0.7
+      o: 0.7;
     }
   }
 }
@@ -55,97 +54,97 @@
 /* Glitch: Overflow and Burger buttons
  * :not(#hack) is there just to elevate rule priority */
 :root[customizing] #nav-bar > toolbarbutton[disabled]:not(#hack), :root[customizing] #nav-bar > toolbaritem > toolbarbutton[disabled]:not(#hack) {
-  o 0.5
+  o: 0.5;
 }
 
 /* Glitch: Overflow button's icon */
 :root[customizing] #nav-bar toolbarbutton:not(#urlbar-zoom-button)[disabled] image {
-  fill-opacity v(toolbarbutton-icon-fill-opacity) i
+  fill-opacity: v(toolbarbutton-icon-fill-opacity) i;
 }
 
 /* Bookmark buttons */
 #nav-bar toolbarbutton.bookmark-item {
-  w auto
+  w: auto;
 
   .toolbarbutton- {
     &icon {
-      ml 6px
+      ml: 6px;
     }
 
     &text {
-      pr 6px
+      pr: 6px;
     }
   }
 }
 
 /* Remove Burger button's left separator */
 #PanelUI-button {
-  m 0
-  b 0
-  padding-inline-start 0 i
+  m: 0;
+  b: 0;
+  padding-inline-start: 0 i;
 }
 
 /* Fix library animation */
 #library-animatable-box {
-  --library-button-height 46px i
-  --library-icon-x 1716px i
+  --library-button-height: 46px i;
+  --library-icon-x: 1716px i;
 }
 
 #library-button[animate] > .toolbarbutton-icon {
-  fill transparent i
+  fill: transparent i;
 }
 
 /* Fix toolbars close icons */
 .close-icon:not(.tab-close-button) image {
-  m 6px
-  bs 16px
+  m: 6px;
+  bs: 16px;
 }
 
 /*  */
 #appMenu-popup .panel-banner-item[notificationid='update-restart']::after {
-  display none i
+  display: none i;
 }
 
 /* Identity site popover buttons */
 .identity-popup-preferences-button:not(#hack) {
-  list-style-image url('chrome://browser/skin/settings.svg') i
+  list-style-image: url('chrome://browser/skin/settings.svg') i;
 }
 
 #tracking-protection-preferences-button > .toolbarbutton-text {
-  padding-inline-end 0 i
+  padding-inline-end: 0 i;
 }
 
 /* Fix findbar buttons issues */
 {selector('.findbar-container .findbar-find-', '&next, &previous', 'image')} {
-  o 1
-  m 6px
+  o: 1;
+  m: 6px;
 }
 
 .findbar-container toolbarbutton:focus {
-  outline 0 i
+  outline: 0 i;
 }
 
 /* Sidebar header button reset font size */
 #sidebar-header {
-  fs 1em
+  fs: 1em;
 }
 
 /* Sidebar header button arrow opacity */
 #sidebar-switcher-arrow {
-  o 1
+  o: 1;
 }
 
 /* Sidebar history view */
 #viewButton {
-  m 0
-  margin-inline-start 6px i
+  m: 0;
+  margin-inline-start: 6px i;
 }
 
 /* Bookmarks editor buttons */
 menulist {
-  ap none
+  ap: none;
 }
 
 {selector('expander-', '&down, &up', 'image')} {
-  m 6px
+  m: 6px;
 }

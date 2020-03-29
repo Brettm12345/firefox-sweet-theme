@@ -1,30 +1,26 @@
 /* Header bar's URL bar */
-@namespace xul 'http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul'
-
 /* Center the URL bar */
-toolbarspring {
+toolbarspring
   max-width 10000px i
-}
+
+#urlbar
+  b 0
+  fs 1rem
+  fn 'Inter v'
 
 /* URL bar and Search bar */
-#urlbar[focused] .urlbar-textbox-container {
+#urlbar[focused] .urlbar-textbox-container
   m -1px
-}
 
-#searchbar > .searchbar-textbox[focused] {
-  .search- {
-    &go-button {
+#searchbar > .searchbar-textbox[focused]
+  .search-
+    &go-button
       mr -1px
-    }
 
-    &serach-button {
+    &serach-button
       ml -1px
-    }
-  }
-}
 
 /* URL bar and Search bar's icons */
-{selector('.urlbar-icon, .urlbar-icon-wrapper,  .searchbar-search-button', '&:hover, &[open], &:hover:active', '&, .searchbar-search-icon')} {
+{selector('.urlbar-icon, .urlbar-icon-wrapper,  .searchbar-search-button', '&:hover, &[open], &:hover:active', '&, .searchbar-search-icon')}
   bg transparent
   fill-opacity 1 i
-}
